@@ -19,9 +19,9 @@ public:
     TVector(size_t size = 0);
     TVector(std::initializer_list<T> ini);
     TVector(T* data, size_t size);
-    TVector(const TVector& other);
-    TVector(TVector&&);
-    ~TVector() = default;
+    TVector(const TVector& other) noexcept;
+    TVector(TVector&&) noexcept;
+    ~TVector() noexcept = default;
 
     inline bool is_empty() const noexcept { return _mem.is_empty(); }
     inline bool is_full() const noexcept { return _mem.is_full(); }
@@ -125,10 +125,10 @@ template<typename T>
 TVector<T>::TVector(T* data, size_t size) : _mem(data, size), _front(0), _back((size > 0) ? size - 1 : 0) {}
 
 template<typename T>
-TVector<T>::TVector(const TVector& other) : _mem(other._mem), _front(other._front), _back(other._back) {}
+TVector<T>::TVector(const TVector& other) noexcept : _mem(other._mem), _front(other._front), _back(other._back) {}
 
 template<typename T>
-TVector<T>::TVector(TVector&& other)
+TVector<T>::TVector(TVector&& other) noexcept
     : _mem(std::move(other._mem)), _front(other._front), _back(other._back) {
     other._front = 0;
     other._back = 0;
