@@ -109,4 +109,31 @@ TEST(TVectorDouble, InputOperator) {
     EXPECT_DOUBLE_EQ(vec[2], 3.5);
 }
 
+TEST(TVectorShrinkToFit, BaseTest) {
+    TVector<int> vec;
+    int* data = new int[5];
+    for (int i = 0; i < 5; ++i) data[i] = i;
+    vec.push_back_few(data, 5);
+    vec.shrink_to_fit();
+    for (int i = 0; i < 5; ++i) EXPECT_EQ(data[i], vec[i]);
+    EXPECT_EQ(vec.capacity(), vec.size());
+}
+
+TEST(TVectorShrinkToFit, PostOperativeTest) {
+    TVector<int> vec;
+    int* data = new int[5];
+    for (int i = 0; i < 5; ++i) data[i] = i;
+    vec.push_back_few(data, 5);
+    vec.push_front(11); // 11 0 1 2 3 4
+    vec.pop_back_few(2); // 11 0 1 2
+    vec.push_front(6); // 6 11 0 1 2
+    vec.pop_back();// 6 11 0 1
+    vec.push_back(8); // 6 11 0 1 8
+    vec.shrink_to_fit();
+    std::ostringstream out;
+    out << vec;
+    EXPECT_EQ(out.str(), "{ 6, 11, 0, 1, 8 }");
+    EXPECT_EQ(vec.capacity(), vec.size());
+}
+
 #endif // TVECTOR_TEST

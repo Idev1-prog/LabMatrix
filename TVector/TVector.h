@@ -51,6 +51,7 @@ public:
     void pop_front();
     void pop_back();
     void erase(size_t);
+    void shrink_to_fit();
 
     void pop_front_few(size_t count) { for (size_t i = 0; i < count; ++i) pop_front(); }
     void pop_back_few(size_t count) { for (size_t i = 0; i < count; ++i) pop_back(); }
@@ -197,6 +198,17 @@ void TVector<T>::erase(size_t index) {
     }
     _mem._size--;
     retreat_back();
+}
+
+template<typename T>
+void TVector<T>::shrink_to_fit() {
+    _mem.reset_memory(_mem.size(), _front);
+    _front = 0;
+    _back = (_mem._size > 0) ? _mem._size - 1 : 0;
+    //if (_mem._size == 0) {
+    //    _front = 0;
+    //    _back = 0;
+    //}
 }
 
 template<typename T>
