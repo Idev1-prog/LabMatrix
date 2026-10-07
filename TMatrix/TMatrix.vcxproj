@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2661d35a-f03c-49c8-8f57-d1059c556205}</ProjectGuid>
-    <RootNamespace>TMathVector</RootNamespace>
+    <ProjectGuid>{6b5689c9-4414-408b-8988-fc64749ee50f}</ProjectGuid>
+    <RootNamespace>TMatrix</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -102,7 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Ivan\source\repos\Idev1-prog\LabMatrix\TVector;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Ivan\source\repos\Idev1-prog\LabMatrix\TMathVector;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -124,15 +124,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="TMathVector.h" />
+    <ClInclude Include="TMatrix.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TVector\TVector.vcxproj">
-      <Project>{337852a0-0ec3-44e5-bf9d-8b859b0c8d36}</Project>
+    <ProjectReference Include="..\TMathVector\TMathVector.vcxproj">
+      <Project>{2661d35a-f03c-49c8-8f57-d1059c556205}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TMathVector.cpp" />
+    <ClCompile Include="TMatrix.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

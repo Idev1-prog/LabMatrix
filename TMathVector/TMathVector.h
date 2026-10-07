@@ -59,7 +59,7 @@ TMathVector<T>& TMathVector<T>::operator-=(const TMathVector& other) {
 template <typename T>
 TMathVector<T>& TMathVector<T>::operator*=(double mult) {
 	for (int i = 0; i < size(); ++i) {
-		(*this)[i] *= static_cast<T>(mult);
+		(*this)[i] *= mult;
 	}
 	return *this;
 }
@@ -96,7 +96,7 @@ TMathVector<T> TMathVector<T>::operator*(double mult) const {
 }
 
 template <typename T>
-bool TMathVector<T>::operator==(const TMathVector& other) {
+bool TMathVector<T>::operator==(const TMathVector& other)  {
 	if (other.size() != size()) throw std::invalid_argument("You cannot add vectors of different sizes");
 	for (int i = 0; i < size(); ++i) {
 		if ((*this)[i] != other[i]) return false;
