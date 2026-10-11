@@ -5,7 +5,7 @@ template <typename T>
 class TMathVector : public TVector<T> {
 
 public:
-	TMathVector() = delete;
+	TMathVector(size_t size = 1) : TVector(size) { this->shrink_to_fit(); }
 	TMathVector(size_t size, T* data) : TVector(data, size) { this->shrink_to_fit(); }
 	TMathVector(std::initializer_list<T> init) : TVector<T>(init) { this->shrink_to_fit(); }
 	TMathVector(const TMathVector&) noexcept = default;
