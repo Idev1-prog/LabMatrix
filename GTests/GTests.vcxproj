@@ -58,6 +58,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>C:\Users\Ivan\source\repos\Idev1-prog\LabMatrix\TMatrix;C:\Users\Ivan\source\repos\Idev1-prog\LabMatrix\TMathVector;C:\Users\Ivan\source\repos\Idev1-prog\LabMatrix\TVector;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
