@@ -5,8 +5,12 @@ template <typename T>
 class TMathVector : public TVector<T> {
 
 public:
-	TMathVector(size_t size = 1) : TVector(size) { this->shrink_to_fit(); }
-	TMathVector(size_t size, T* data) : TVector(data, size) { this->shrink_to_fit(); }
+	TMathVector(size_t size = 1) : TVector(size) 
+	{ 
+		if (size == 0) throw std::invalid_argument("Attempt to create a vector of size 0");
+		this->shrink_to_fit(); 
+	}
+	TMathVector(size_t size, T* data) : TVector(data, size) { this->shrink_to_fit(); } // возможно нужны проверки
 	TMathVector(std::initializer_list<T> init) : TVector<T>(init) { this->shrink_to_fit(); }
 	TMathVector(const TMathVector&) noexcept = default;
 	TMathVector(TMathVector&&) noexcept = default;
